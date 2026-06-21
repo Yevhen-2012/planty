@@ -117,7 +117,7 @@ window.addEventListener('load', () => {
       opacity: 0
     })
   
-    .from('.hero__review-wraper', {
+    .from('.hero__review-wrapper', {
       y: 40,
       opacity: 0
     }, "-=0.45");
