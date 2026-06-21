@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
     
     if (!slides.length || !currentEl || !totalEl) {
-      console.log("Missing required elements");
       return;
     }
   
@@ -30,15 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
       currentEl.textContent = formatNumber(currentIndex + 1);
       totalEl.textContent = formatNumber(slides.length);
-  
-      console.log("Current text:", currentEl.textContent);
-      console.log("Total text:", totalEl.textContent);
-    }
+     }
   
     updateCounter();
   
     rightArrow?.addEventListener("click", () => {
-      console.log("Right arrow clicked");
   
       currentIndex++;
   
@@ -50,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     leftArrow?.addEventListener("click", () => {
-      console.log("Left arrow clicked");
   
       currentIndex--;
   
@@ -118,7 +112,6 @@ window.addEventListener('load', () => {
   gsap.registerPlugin(ScrollTrigger);
   
   gsap.utils.toArray('.cc-reveal').forEach((item) => {
-    console.log("Reveal item:", item);
     gsap.from(item, {
       scrollTrigger: {
         trigger: item,
