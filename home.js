@@ -2,12 +2,10 @@
 
 // Slider
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Slider script initialized");
-  
+     
     const slider = document.querySelector(".blog__slider");
   
-    console.log("Slider:", slider);
-  
+      
     if (!slider) return;
   
     const slides = slider.querySelectorAll(".blog__slide");
@@ -16,12 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const leftArrow = slider.querySelector(".blog__slider-left-arrow");
     const rightArrow = slider.querySelector(".blog__slider-right-arrow");
   
-    console.log("Slides found:", slides.length);
-    console.log("Current element:", currentEl);
-    console.log("Total element:", totalEl);
-    console.log("Left arrow:", leftArrow);
-    console.log("Right arrow:", rightArrow);
-  
+    
     if (!slides.length || !currentEl || !totalEl) {
       console.log("Missing required elements");
       return;
@@ -34,9 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     function updateCounter() {
-      console.log("Updating counter");
-      console.log("Current index:", currentIndex);
-  
+    
       currentEl.textContent = formatNumber(currentIndex + 1);
       totalEl.textContent = formatNumber(slides.length);
   
