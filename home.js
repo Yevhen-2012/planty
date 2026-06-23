@@ -88,43 +88,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
 // Hero intro animation
-window.addEventListener('load', () => {
-    const tl = gsap.timeline({
-      defaults: {
-        duration: 0.8,
-        ease: "power3.out"
-      },
-      delay: 0.3
-    });
-  
-    tl.from('.hero__content', {
-      y: 40,
-      opacity: 0
-    })
-  
-    .from('.hero__review-wrapper', {
-      y: 40,
-      opacity: 0
-    }, "-=0.45");
+window.addEventListener("DOMContentLoaded", () => {
+  gsap.set(".hero__content, .hero__review-wrapper", {
+    autoAlpha: 0,
+    y: 40
   });
-  
-  // Reveal animation
-  gsap.registerPlugin(ScrollTrigger);
-  
-  gsap.utils.toArray('.cc-reveal').forEach((item) => {
-    gsap.from(item, {
-      scrollTrigger: {
-        trigger: item,
-        start: "top 85%",
-        toggleActions: "play none none none"
-      },
-      y: 40,
-      autoAlpha: 0.01,
-      duration: 0.9,
+
+  const tl = gsap.timeline({
+    defaults: {
+      duration: 0.8,
       ease: "power3.out"
-    });
-  
+    },
+    delay: 0.3
   });
+
+  tl.to(".hero__content", {
+    y: 0,
+    autoAlpha: 1
+  })
+  .to(".hero__review-wrapper", {
+    y: 0,
+    autoAlpha: 1
+  }, "-=0.45");
+});
+  
+ // Reveal animation
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".cc-reveal").forEach((item) => {
+  gsap.set(item, {
+    autoAlpha: 0,
+    y: 40
+  });
+
+  gsap.to(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top 85%",
+      toggleActions: "play none none none"
+    },
+    y: 0,
+    autoAlpha: 1,
+    duration: 0.9,
+    ease: "power3.out"
+  });
+});
   
   // hero video
   
